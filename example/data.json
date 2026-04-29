@@ -1,0 +1,57 @@
+{
+    "meta": {
+        "version": "1.0",
+        "author": "John Doe",
+        "date": "2024-06-01",
+        "stage_code": "STAGE_1"
+    },
+    "data": [
+        {
+            "area_code": "AREA_001",
+            "width": 100,
+            "height": 200,
+            "type": "sideview",
+            "tiles":[
+                {"tile_id": "TILE_001", "x": 0, "y": 0, "type": "grass", "code": "GRASS_TILE", "asset_name": "grass_tile", "properties": {"walkable": true, "destructible": false}, "events": [{"event_type": "spawn_enemy", "parameters": {"enemy_type": "goblin", "spawn_rate": 0.1}}]},
+                {"tile_id": "TILE_002", "x": 1, "y": 0, "type": "water", "code": "WATER_TILE", "asset_name":"grass_tile", "properties": {"walkable": false, "destructible": false}, "events": [{"event_type": "play_sound", "parameters": {"sound_id": "water_splash"}}]},
+                {"tile_id": "TILE_003", "x": 2, "y": 0, "type": "sand", "code": "SAND_TILE", "asset_name":"grass_tile", "properties": {"walkable": true, "destructible": false}, "events": [{"event_type": "change_weather", "parameters": {"weather_type": "sunny"}}]}
+            ],
+            "objects":[
+                {"object_id": "OBJ_001", "x": 5, "y": 5, "type": "tree", "code": "TREE_OBJECT", "asset_name":"tree_object", "properties": {"walkable": false, "destructible": true}, "events": [{"event_type": "drop_item", "parameters": {"item_id": "wood"}}]},
+                {"object_id": "OBJ_002", "x": 10, "y": 10, "type": "rock", "code": "ROCK_OBJECT", "asset_name":"rock_object", "properties": {"walkable": false, "destructible": true}, "events": [{"event_type": "drop_item", "parameters": {"item_id": "stone"}}]}
+            ],
+            "characters":[
+                {"character_id": "CHAR_001", "x": 15, "y": 15, "type": "npc", "code": "NPC_CHARACTER", "asset_name":"npc_character", "properties": {"walkable": true, "destructible": false}, "events": [{"event_type": "start_dialogue", "parameters": {"dialogue_id": "greeting"}}]},
+                {"character_id": "CHAR_002", "x": 20, "y": 20, "type": "enemy", "code": "ENEMY_CHARACTER", "asset_name":"enemy_character", "properties": {"walkable": true, "destructible": true}, "events": [{"event_type": "attack_player", "parameters": {"damage": 10}}]}
+            ],
+            "triggers":[
+                {"trigger_id": "TRIGGER_001", "x": 25, "y": 25, "type": "area_trigger", "code": "AREA_TRIGGER", "asset_name":"area_trigger", "properties": {"walkable": true, "destructible": false}, "events": [{"event_type": "spawn_enemy_wave", "parameters": {"enemy_type": "goblin", "wave_count": 3}}]},
+                {"trigger_id": "TRIGGER_002", "x": 30, "y": 30, "type": "item_trigger", "code": "ITEM_TRIGGER", "asset_name":"item_trigger", "properties": {"walkable": true, "destructible": false}, "events": [{"event_type": "give_item", "parameters": {"item_id": "health_potion"}}]}
+            ]
+        },
+        {
+            "area_code": "AREA_002",
+            "width": 150,
+            "height": 250,
+            "type": "topdown",
+            "tiles":[
+                {"tile_id": "TILE_004", "x": 0, "y": 0, "type": "stone", "code": "STONE_TILE", "asset_name":"stone_tile", "properties": {"walkable": true, "destructible": false}, "events": [{"event_type": "play_sound", "parameters": {"sound_id": "stone_step"}}]},
+                {"tile_id": "TILE_005", "x": 1, "y": 0, "type": "lava", "code": "LAVA_TILE", "asset_name":"lava_tile", "properties": {"walkable": false, "destructible": false}, "events": [{"event_type": "damage_player", "parameters": {"damage_per_second": 5}}]},
+                {"tile_id": "TILE_006", "x": 2, "y": 0, "type": "ice", "code": "ICE_TILE", "asset_name":"ice_tile", "properties": {"walkable": true, "destructible": false}, "events": [{"event_type": "slip_player", "parameters": {"slip_duration": 2}}]}
+            ],
+            "objects":[
+                {"object_id": "OBJ_003", "x": 5, "y": 5, "type": "chest", "code": "CHEST_OBJECT", "asset_name":"chest_object", "properties": {"walkable": false, "destructible": true}, "events": [{"event_type": "open_chest", "parameters": {"item_id": "gold"}}]},
+                {"object_id": "OBJ_004", "x": 10, "y": 10, "type": "barrel", "code": "BARREL_OBJECT", "asset_name":"barrel_object", "properties": {"walkable": false, "destructible": true}, "events": [{"event_type": "break_barrel", "parameters": {"item_id": "wood"}}]}
+            ],
+            "characters":[
+                {"character_id": "CHAR_003", "x": 15, "y": 15, "type": "ally", "code": "ALLY_CHARACTER", "asset_name":"ally_character", "properties": {"walkable": true, "destructible": false}, "events": [{"event_type": "assist_player", "parameters": {"assist_type": "heal"}}]},
+                {"character_id": "CHAR_004", "x": 20, "y": 20, "type": "boss", "code": "BOSS_CHARACTER", "asset_name":"boss_character", "properties": {"walkable": true, "destructible": true}, "events": [{"event_type": "boss_attack", "parameters": {"damage": 20}}]}
+            ],
+            "triggers":[
+                {"trigger_id": "TRIGGER_003", "x": 25, "y": 25, "type": "boss_trigger", "code": "BOSS_TRIGGER", "asset_name":"boss_trigger", "properties": {"walkable": true, "destructible": false}, "events": [{"event_type": "start_boss_fight", "parameters": {"boss_id": "CHAR_004"}}]},
+                {"trigger_id": "TRIGGER_004", "x": 30, "y": 30, "type": "puzzle_trigger", "code": "PUZZLE_TRIGGER", "asset_name":"puzzle_trigger", "properties": {"walkable": true, "destructible": false}, "events": [{"event_type": "start_puzzle", "parameters": {"puzzle_id": "PUZZLE_001"}}]}
+            ]
+        }
+    ]
+    
+}
